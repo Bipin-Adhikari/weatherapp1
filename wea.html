@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherApp</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+
+        function nepal() 
+        {
+
+            var a;
+            axios.get('http://api.openweathermap.org/data/2.5/weather?q=Bristol&appid=f369b5a9b448fa1cc5d1a186658e3573', {
+
+            })
+
+                .then(function (response) {
+                    console.log(response.data);
+                    a = response.data.main.temp
+                    document.getElementById("op").innerText = `${a}degree celcius`
+
+
+                    document.getElementById("op1").innerText = `today is ${response.data.main.humidity}degree`
+
+                    document.getElementById("op2").innerText = `today is ${response.data.main.pressure}`
+
+                })
+
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                });
+            }
+
+
+    </script>
+    <style>
+       *{
+        font-family: 'Roboto Condensed', sans-serif;
+       }
+
+        .container {
+            border: 3px solid slateblue;
+            margin: 100px;
+            display: inline-block;
+            width: 440px;
+            height: 300px;
+            
+            /* background-image: url("./seasonal-hot-discounts_175682-15135.jpg") */
+            position: relative;
+            z-index: 10;
+            border-radius:10%;
+            margin-top: 150px;
+            text-align: center;
+
+        
+        }
+
+        h1 {
+            margin: 5px 10px 15px 20px;
+            background-color: springgreen;
+            border-radius: 25px;
+
+        }
+        body video{
+            position: absolute;
+            width:100%;
+            height:100%;
+            object-fit: cover;
+            opacity: 0.9;
+        }
+        .container #ng:hover {
+            width: 60px;
+
+            background-color: springgreen;
+            border-radius: 25px;
+        }
+    </style>
+</head>
+
+<body><video src="/Pexels Videos 1893623.mp4" muted loop autoplay ></video>
+
+    <div class="container" z-index=10;>
+
+        <h1 >WeatherApp of Bristol</h1>
+        <b>Today is <b id="op"></b></b><br><br>
+        <b>Today is <b id="op1"></b></b><br><br>
+        <b>Today is <b id="op2"></b>humidity</b><br><br>
+        
+        <button onclick="nepal()" id="ng">Click me</button>
+
+
+
+
+
+    </div>
+</body>
+
+</html>
